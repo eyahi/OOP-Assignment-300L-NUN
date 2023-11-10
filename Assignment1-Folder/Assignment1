@@ -1,0 +1,21 @@
+Assignment 1: CPE 303 Object Oriented Programming 
+Develop an employee management system using multiple inheritance and virtual inheritance in C++. You will create a class hierarchy for managing different types of employees, including full-time employees and part-time employees.
+Requirements:
+Create a base class Employee with the following attributes and methods:
+Name
+Employee ID
+getInfo() method to display employee details.
+Create a derived class FullTimeEmployee that inherits from Employee and has the properties:
+Salary
+getInfo() method to display full-time employee details.
+Create another derived class PartTimeEmployee that also inherits from Employee and has the properties:
+Hourly wage
+Hours worked
+getInfo() method to display part-time employee details.
+Implement the Employee class and the derived classes with multiple inheritance:
+Use multiple inheritance to allow FullTimeEmployee and PartTimeEmployee to inherit from Employee.
+Use virtual inheritance to ensure there's only one instance of Employee in the inheritance hierarchy.
+In the main function:
+Create objects of FullTimeEmployee and PartTimeEmployee.
+Display the details of both types of employees using the getInfo() method.
+NB: Use your personal full name as either a Full time Employee or Part-Time Employee
