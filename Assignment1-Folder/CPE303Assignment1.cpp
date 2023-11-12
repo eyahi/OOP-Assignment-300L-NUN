@@ -1,3 +1,8 @@
+//Name: Ikeamaka Collins Chidubem
+//ID: 211103054
+//Dept: Computer Engineering
+//Level: 300 level
+
 #include <iostream>
 #include <string>
 using namespace std;
