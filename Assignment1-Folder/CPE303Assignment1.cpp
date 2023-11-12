@@ -26,7 +26,7 @@ private:
 public:
     FullTimeEmployee(const string& name, int employeeID, int salary) : Employee(name, employeeID), Salary(salary) {};
     void getInfo() override {
-        cout << "\nName: " << Name << "\nEmployee ID: " << EmployeeID << "\nSalary: " << Salary << "$" << endl;
+        cout << "\nFulltime Employee Information\nName: " << Name << "\nEmployee ID: " << EmployeeID << "\nSalary: " << Salary << "$" << endl;
     }
 };
 
@@ -38,7 +38,7 @@ private:
 public:
     PartTimeEmployee(const string& name, int employeeID, int hourlyWage, int hoursWorked) : Employee(name, employeeID), HourlyWage(hourlyWage), HoursWorked(hoursWorked) {};
     void getInfo() override {
-        cout << "\nName: " << Name << "\nEmployee ID: " << EmployeeID << "\nHourly Wage: " << HourlyWage << "$/hr" << "\nHours Worked: " << HoursWorked << "hrs" << endl;
+        cout << "\nPart-time Employee Information\nName: " << Name << "\nEmployee ID: " << EmployeeID << "\nHourly Wage: " << HourlyWage << "$/hr" << "\nHours Worked: " << HoursWorked << "hrs" << endl;
     }
 };
 
