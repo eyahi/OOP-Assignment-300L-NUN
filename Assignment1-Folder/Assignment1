@@ -19,3 +19,64 @@ In the main function:
 Create objects of FullTimeEmployee and PartTimeEmployee.
 Display the details of both types of employees using the getInfo() method.
 NB: Use your personal full name as either a Full time Employee or Part-Time Employee
+
+
+#include <iostream>
+#include <string>
+
+class Employee {
+protected:
+    std::string name;
+    int employeeID;
+
+public:
+    Employee(const std::string& name, int employeeID) : name(name), employeeID(employeeID) {}
+
+    void getInfo() const {
+        std::cout << "Name: " << name << "\nEmployee ID: " << employeeID << "\n";
+    }
+};
+
+class FullTimeEmployee : public virtual Employee {
+protected:
+    double salary;
+
+public:
+    FullTimeEmployee(const std::string& name, int employeeID, double salary)
+        : Employee(name, employeeID), salary(salary) {}
+
+    void getInfo() const {
+        Employee::getInfo();
+        std::cout << "Salary: " << salary << "\n";
+    }
+};
+
+class PartTimeEmployee : public virtual Employee {
+protected:
+    double hourlyWage;
+    double hoursWorked;
+
+public:
+    PartTimeEmployee(const std::string& name, int employeeID, double hourlyWage, double hoursWorked)
+        : Employee(name, employeeID), hourlyWage(hourlyWage), hoursWorked(hoursWorked) {}
+
+    void getInfo() const {
+        Employee::getInfo();
+        std::cout << "Hourly Wage: " << hourlyWage << "\nHours Worked: " << hoursWorked << "\n";
+    }
+};
+
+class FullTimeAndPartTimeEmployee : public FullTimeEmployee, public PartTimeEmployee {
+public:
+    FullTimeAndPartTimeEmployee(const std::string& name, int employeeID, double salary, double hourlyWage, double hoursWorked)
+        : Employee(name, employeeID), FullTimeEmployee(name, employeeID, salary), PartTimeEmployee(name, employeeID, hourlyWage, hoursWorked) {}
+};
+
+int main() {
+    FullTimeAndPartTimeEmployee emp("Sa’ada Hamisu Idris", 1001, 60000.0, 25.0, 20.0);
+    emp.FullTimeEmployee::getInfo();
+    std::cout << "\n";
+    emp.PartTimeEmployee::getInfo();
+
+    return 0;
+}
