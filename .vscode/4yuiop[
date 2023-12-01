@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+
+class Employee {
+public:
+    std::string Name;
+    int EmployeeID;
+
+    void getInfo() const {
+        std::cout << "Name: " << Name << "\nEmployee ID: " << EmployeeID << std::endl;
+    }
+};
+
+class FullTimeEmployee : public virtual Employee {
+public:
+    double Salary;
+
+    void getInfo() const {
+        Employee::getInfo();
+        std::cout << "Salary: " << Salary << " Naira\n";
+    }
+};
+
+class PartTimeEmployee : public virtual Employee {
+public:
+    double HourlyWage;
+    int HoursWorked;
+
+    void getInfo() const {
+        Employee::getInfo();
+        std::cout << "Hourly Wage: " << HourlyWage << " Naira\n"
+                  << "Hours Worked: " << HoursWorked << " hours\n";
+    }
+};
+
+class FullTimeEmployeeWithName : public FullTimeEmployee {
+public:
+    FullTimeEmployeeWithName() {
+        Name = "Maimuna Ali Muhammad";
+        EmployeeID = 211203044;
+        Salary = 60000;  // Example salary in Naira
+    }
+};
+
+class PartTimeEmployeeWithName : public PartTimeEmployee {
+public:
+    PartTimeEmployeeWithName() {
+        Name = "Hassana Abdulhamid";
+        EmployeeID = 211205678;
+        HourlyWage = 300;  // Example hourly wage in Naira
+        HoursWorked = 20;
+    }
+};
+
+int main() {
+    FullTimeEmployeeWithName fullTimeEmployee;
+    PartTimeEmployeeWithName partTimeEmployee;
+
+    std::cout << "Full-Time Employee Details:\n";
+    fullTimeEmployee.getInfo();
+    std::cout << "\nPart-Time Employee Details:\n";
+    partTimeEmployee.getInfo();
+
+    return 0;
+}
