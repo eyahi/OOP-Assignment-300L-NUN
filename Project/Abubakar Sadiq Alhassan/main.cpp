@@ -13,15 +13,15 @@ int main() {
      
     
     // Add books to the library
-    BookItem book1("Introduction to C++","677i", "John Doe",123456789);
-    BookItem book2("Object-Oriented Programming in C++","gdag", "Jane Smith", 987654321);
+    BookItem book1("computer engineering","15/01/2024", "Abubakar Sadiq ALhassan",211203056);
+    BookItem book2("Object-Oriented Programming in C++","16/01/2024", "Dr. Emmanuel Ali", 12345678);
 
     library.addBook(book1);
     library.addBook(book2);
 
     // Add patrons to the library
-    Patron patron1("Alice", 123);
-    Patron patron2("Bob", 456);
+    Patron patron1("Dr Ali", 301);
+    Patron patron2("Dr Opeyemi", 302);
 
     library.addPatron(patron1);
     library.addPatron(patron2);
