@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-// book_item.h
+
 #ifndef BOOK_ITEM_H 
 #define BOOK_ITEM_H 
 #include "library_item.h"
@@ -21,4 +21,4 @@ class BookItem : public LibraryItem {
  void checkout() override;
  bool operator==(const BookItem& other) const; 
 };
-#endif // BOOK_ITEM_H
+#endif 

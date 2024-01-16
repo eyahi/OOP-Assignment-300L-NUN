@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-// library_item.h
+
 #ifndef LIBRARY_ITEM_H 
 #define LIBRARY_ITEM_H
 class LibraryItem { 
@@ -24,4 +24,4 @@ class LibraryItem {
    
    
 };
-#endif // LIBRARY_ITEM_H
+#endif 

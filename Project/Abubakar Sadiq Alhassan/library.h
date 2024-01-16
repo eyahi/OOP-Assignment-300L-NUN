@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-// library.h
+
 #ifndef LIBRARY_H 
 #define LIBRARY_H
 #include "book_item.h"
@@ -24,4 +24,4 @@ class Library {
     PatronRecord getPatronRecord(const Patron& patron) const;
 
 };
-#endif // LIBRARY_H
+#endif 

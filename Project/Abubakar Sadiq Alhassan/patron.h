@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-// patron.h
+
 #ifndef PATRON_H 
 #define PATRON_H
 class Patron { 
@@ -17,4 +17,4 @@ class Patron {
     void setname(const string newname );
     void setlbc(int newlbc );
 };
-#endif // PATRON_H
+#endif 

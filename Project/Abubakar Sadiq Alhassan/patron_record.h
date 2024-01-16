@@ -5,7 +5,7 @@
 using namespace std;
 
 
-// patron_record.h
+
 #ifndef PATRON_RECORD_H 
 #define PATRON_RECORD_H 
 #include "book_item.h"
@@ -24,4 +24,4 @@ class PatronRecord {
  void removecheckedOutBooks( BookItem book);
  vector<BookItem> getcheckedOutBooks();
 };
-#endif // PATRON_RECORD_H
+#endif 
