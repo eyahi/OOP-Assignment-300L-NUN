@@ -194,8 +194,6 @@ void Library::returnBook(const Patron& patron, const BookItem& book) {
 }
 
 
-Integrate
-
 #include "book_item.h"
 #include "patron.h"
 #include "library.h"
