@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+
+class Employee {
+protected:
+    std::string name;
+    int employeeID;
+
+public:
+    Employee(const std::string& n, int id) : name(n), employeeID(id) {}
+
+    virtual void getInfo() const {
+        std::cout << "Employee ID: " << employeeID << "\nName: " << name << std::endl;
+    }
+};
+
+class FullTimeEmployee : virtual public Employee {
+protected:
+    double salary;
+
+public:
+    FullTimeEmployee(const std::string& n, int id, double s) : Employee(n, id), salary(s) {}
+
+    void getInfo() const override {
+        std::cout << "Full-Time Employee\n";
+        Employee::getInfo();
+        std::cout << "Salary: $" << salary << std::endl;
+    }
+};
+
+class PartTimeEmployee : virtual public Employee {
+protected:
+    double hourlyWage;
+    double hoursWorked;
+
+public:
+    PartTimeEmployee(const std::string& n, int id, double wage, double hours)
+        : Employee(n, id), hourlyWage(wage), hoursWorked(hours) {}
+
+    void getInfo() const override {
+        std::cout << "Part-Time Employee\n";
+        Employee::getInfo();
+        std::cout << "Hourly Wage: $" << hourlyWage << "\nHours Worked: " << hoursWorked << " hours\n";
+    }
+};
+
+int main() {
+    FullTimeEmployee fullTime("Naima Sani Abubakar", 211203021, 13000.0);
+    PartTimeEmployee partTime(" PartTimeEmployee",267584837, 34.0, 14.0);
+
+    std::cout << "Full-Time Employee Details:\n";
+    fullTime.getInfo();
+
+    std::cout << "\nPart-Time Employee Details:\n";
+    partTime.getInfo();
+
+    return 0;
+};

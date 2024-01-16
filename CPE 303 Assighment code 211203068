@@ -1,0 +1,71 @@
+#include <iostream>
+#include <string>
+
+class Employee {
+protected:
+    std::string name;
+    int employeeId;
+
+public:
+    Employee(const std::string& n, int id) : name(n), employeeId(id) {}
+
+    virtual void getInfo() const {
+        std::cout << "Employee ID: " << employeeId << "\nName: " << name << std::endl;
+    }
+};
+
+class FullTimeEmployee : public virtual Employee {
+protected:
+    double salary;
+
+public:
+    FullTimeEmployee(const std::string& n, int id, double s) : Employee(n, id), salary(s) {}
+
+    void getInfo() const override {
+        Employee::getInfo();
+        std::cout << "Type: Full-Time Employee\nSalary: $" << salary << std::endl;
+    }
+};
+
+class PartTimeEmployee : public virtual Employee {
+protected:
+    double hourlyWage;
+    double hoursWorked;
+
+public:
+    PartTimeEmployee(const std::string& n, int id, double wage, double hours)
+        : Employee(n, id), hourlyWage(wage), hoursWorked(hours) {}
+
+    void getInfo() const override {
+        Employee::getInfo();
+        std::cout << "Type: Part-Time Employee\nHourly Wage: $" << hourlyWage
+                  << "\nHours Worked: " << hoursWorked << " hours" << std::endl;
+    }
+};
+
+class FullTimePartTimeEmployee : public FullTimeEmployee, public PartTimeEmployee {
+public:
+    FullTimePartTimeEmployee(const std::string& n, int id, double s, double wage, double hours)
+        : Employee(n, id), FullTimeEmployee(n, id, s), PartTimeEmployee(n, id, wage, hours) {}
+
+    void getInfo() const override {
+        Employee::getInfo();
+        std::cout << "Type: Full-Time & Part-Time Employee\nSalary: $" << salary
+                  << "\nHourly Wage: $" << hourlyWage << "\nHours Worked: " << hoursWorked << " hours"
+                  << std::endl;
+    }
+};
+
+int main() {
+    FullTimeEmployee fullTimeEmp("Maryam MUAZU Ahmed", 101, 50000.0);
+    PartTimeEmployee partTimeEmp("Maryam MUAZU Ahmed", 202, 15.0, 20.0);
+
+    std::cout << "Details of Full-Time Employee:\n";
+    fullTimeEmp.getInfo();
+
+    std::cout << "\nDetails of Part-Time Employee:\n";
+    partTimeEmp.getInfo();
+
+    return 0;
+}
+
