@@ -1,71 +1,61 @@
-See her code:#include <iostream>
+#include <iostream>
 #include <string>
 
-
-// Base class Employee
 class Employee {
+protected:
+    std::string Name;
+    int EmployeeID;
+
 public:
-    Employee(const std::string& name, int employeeID)
-        : name(name), employeeID(employeeID) {}
+    Employee(const std::string& name, int employeeID) : Name(name), EmployeeID(employeeID) {}
 
-    // Virtual function to display employee details
-    virtual void getInfo() const {
-        std::cout << "Employee ID: " << employeeID << "\n";
-        std::cout << "Name: " << name << "\n";
+    virtual void getInfo() {
+        std::cout << "Employee Name: " << Name << std::endl;
+        std::cout << "Employee ID: " << EmployeeID << std::endl;
     }
-
-private:
-    std::string name;
-    int employeeID;
 };
 
-// Derived class FullTimeEmployee
-class FullTimeEmployee : public virtual Employee {
+class FullTimeEmployee : virtual public Employee {
+protected:
+    double Salary;
+
 public:
     FullTimeEmployee(const std::string& name, int employeeID, double salary)
-        : Employee(name, employeeID), salary(salary) {}
+        : Employee(name, employeeID), Salary(salary) {}
 
-    // Override getInfo to display full-time employee details
-    void getInfo() const override {
+    void getInfo() override {
         Employee::getInfo();
-        std::cout << "Type: Full-Time Employee\n";
-        std::cout << "Salary: $" << salary << "\n";
+        std::cout << "Employee Type: Full-Time" << std::endl;
+        std::cout << "Salary: $" << Salary << std::endl;
     }
-
-private:
-    double salary;
 };
 
-// Derived class PartTimeEmployee
-class PartTimeEmployee : public virtual Employee {
+class PartTimeEmployee : virtual public Employee {
+protected:
+    double HourlyWage;
+    int HoursWorked;
+
 public:
-    PartTimeEmployee(const std::string& name, int employeeID, double hourlyWage, double hoursWorked)
-        : Employee(name, employeeID), hourlyWage(hourlyWage), hoursWorked(hoursWorked) {}
+    PartTimeEmployee(const std::string& name, int employeeID, double hourlyWage, int hoursWorked)
+        : Employee(name, employeeID), HourlyWage(hourlyWage), HoursWorked(hoursWorked) {}
 
-    // Override getInfo to display part-time employee details
-    void getInfo() const override {
+    void getInfo() override {
         Employee::getInfo();
-        std::cout << "Type: Part-Time Employee\n";
-        std::cout << "Hourly Wage: $" << hourlyWage << "\n";
-        std::cout << "Hours Worked: " << hoursWorked << " hours\n";
+        std::cout << "Employee Type: Part-Time" << std::endl;
+        std::cout << "Hourly Wage: $" << HourlyWage << std::endl;
+        std::cout << "Hours Worked: " << HoursWorked << " hours" << std::endl;
     }
-
-private:
-    double hourlyWage;
-    double hoursWorked;
 };
 
 int main() {
-    // Create objects of FullTimeEmployee and PartTimeEmployee
-    FullTimeEmployee fullTimeEmployee("Sedooter Yanmar-Ortese", 211203032, 5000.6);
-    PartTimeEmployee partTimeEmployee("Sedooter Yanmar-Ortese", 211203032, 45.3, 47.9);
+    FullTimeEmployee fullTimeEmployee("Senator Chigoziri", 211203030, 50000.0);
+    PartTimeEmployee partTimeEmployee("Destroyer", 224555, 1500.0, 150);
 
-    // Display the details of both types of employees using the getInfo() method
-    std::cout << "Full-Time Employee Details:\n";
+    std::cout << "Full-Time Employee Details:" << std::endl;
     fullTimeEmployee.getInfo();
-    std::cout << "\n";
+    std::cout << std::endl;
 
-    std::cout << "Part-Time Employee Details:\n";
+    std::cout << "Part-Time Employee Details:" << std::endl;
     partTimeEmployee.getInfo();
 
     return 0;
